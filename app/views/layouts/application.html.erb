@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheBigProjet</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">The Big Project</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <%= link_to 'Accueil', root_path, class: 'nav-link' %>
+          </li>
+        <li class="nav-item">
+          <%= link_to 'Team', team_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Contact', contact_path, class: 'nav-link' %>
+        </li>
+        <% if session[:user_id] %>
+                  <%= form_with url: logout_path, method: :delete, local: true do %>
+                    <%= submit_tag 'Se déconnecter', class: 'btn btn-danger' %>
+              <% end %>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "S'inscrire", new_user_path %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Se connecter", login_path %>
+          </li>
+
+        <% end %>
+
+      </ul>
+    </div>
+  </nav>
+    <%= yield %>
+  </body>
+</html>

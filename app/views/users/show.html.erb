@@ -1,0 +1,11 @@
+<h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
+<p>Email: <%= @user.email %></p>
+
+<h1>Profil de <%= @user.first_name %> <%= @user.last_name %></h1>
+<p>Prénom : <%= @user.first_name %></p>
+<p>Nom : <%= @user.last_name %></p>
+<p>Description : <%= @user.description %></p>
+<p>Email : <%= @user.email %></p>
+<p>Âge : <%= @user.age %></p>
+<p>Ville : <%= link_to @user.city.name, city_path(@user.city) %></p>
+<%= link_to 'Retour', root_path, class: 'btn btn-secondary' %>

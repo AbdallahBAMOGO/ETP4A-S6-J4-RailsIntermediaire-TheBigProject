@@ -1,0 +1,9 @@
+<h1>Modifier Commentaire</h1>
+<%= form_with model: [ @gossip, @comment ], local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: 'form-control' %>
+  </div>
+  <%= form.submit 'Modifier Commentaire', class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Retour', gossip_path(@gossip), class: 'btn btn-secondary' %>

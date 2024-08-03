@@ -1,0 +1,8 @@
+<h1>Ville de <%= @city.name %></h1>
+<h2>Potins de cette ville :</h2>
+<ul>
+  <% @gossips.each do |gossip| %>
+    <li><%= link_to gossip.title, gossip_path(gossip) %> par <%= link_to gossip.author.first_name, user_path(gossip.author) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Retour', root_path, class: 'btn btn-secondary' %>

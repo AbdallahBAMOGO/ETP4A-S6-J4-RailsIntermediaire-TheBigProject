@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-head">
+    <%= link_to gossip.title, gossip_path(gossip) %>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to gossip.title, gossip_path(gossip) %></h5>
+    <p class="card-text">Contenu : <%= @gossip.content %></p>
+    <p>Auteur : <%= link_to @gossip.author.first_name, user_path(@gossip.author) %></p>
+    <p>Ville de l'auteur : <%= link_to @gossip.author.city.name, city_path(@gossip.author.city) %></p>
+    <%= link_to 'Modifier', edit_gossip_path(@gossip), class: 'btn btn-warning' %>
+    <%= link_to 'Supprimer', @gossip, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn btn-danger' %>
+    <%= link_to 'Retour', root_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
